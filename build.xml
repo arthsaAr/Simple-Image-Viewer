@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="ImageViewer" default="run" basedir=".">
+
+  <property name="verbose.output" value="false" />
+
+  <property name="build.dir" location="build" />
+  <property name="dist.dir" location="dist" />
+  <property name="classes.dir" location="${build.dir}/classes" />
+  <property name="jar.dir" location="${dist.dir}" />
+  <property name="src.dir" location="src" />
+  <property name="assets.dir" location="${src.dir}/assets"/>
+  <property name="doc.dir" location="doc" />
+
+  <property name="Main-Class" value="edu.kingsu.SoftwareEngineering.ImageViewer.Main"/>
+  <property name="jar.name" value="${ant.project.name}"/>
+  <property name="jar.file" value="${jar.dir}/${jar.name}.jar"/>
+
+  <path id="classpath.base">
+    <pathelement location="${classes.dir}"/>
+  </path>
+
+  <target name="clean" description="Clean the project (Removes build files and docs)">
+    <delete dir="${build.dir}"/>
+    <delete dir="${dist.dir}"/>
+    <delete dir="${doc.dir}"/>
+  </target>
+
+  <target name="init" depends="" description="Create directory structure">
+    <mkdir dir="${src.dir}" />
+    <mkdir dir="${assets.dir}" />
+    <mkdir dir="${classes.dir}" />
+    <mkdir dir="${dist.dir}" />
+  </target>
+
+  <target name="compile" depends="init" description="Compile the code into classes (${classes.dir})">
+    <mkdir dir="${classes.dir}"/>
+    <javac  debug="true"
+            debuglevel="lines,vars,source"
+            srcdir="${src.dir}"
+            destdir="${classes.dir}"
+            verbose="${verbose.output}"
+            includeantruntime="false"
+    >
+    </javac>
+  </target>
+
+  <target name="jar" depends="compile" description="Bundle classes into a single JAR file (build/jar/)">
+    <mkdir dir="${jar.dir}"/>
+    <jar destfile="${jar.file}" basedir="${classes.dir}">
+      <fileset dir="${assets.dir}"/>
+      <manifest>
+        <attribute name="Main-Class" value="${Main-Class}"/>
+      </manifest>
+    </jar>
+  </target>
+
+  <target name="run" depends="jar" description="Run ${ant.project.name}">
+    <java jar="${jar.file}" fork="true">
+    </java>
+  </target>
+
+  <target name="javadoc" description="Create the JavaDoc API">
+    <javadoc
+      packagenames="edu.kingsu.SoftwareEngineering.*"
+      sourcepath="${src.dir}"
+      destdir="${doc.dir}"
+      author="true"
+      version="true"
+      windowTitle="${ant.project.name}"
+      private="true"
+      linksource="yes">
+      <bottom><![CDATA[<i>Copyright &#169; REPLACE ME (YOU WILL LOSE MARKS IF YOU DON'T). All Rights Reserved.</i>]]></bottom>
+    </javadoc>
+  </target>
+
+</project>
+
