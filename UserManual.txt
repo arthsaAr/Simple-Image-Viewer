@@ -31,4 +31,7 @@ Notes:
 All image modifications are temporary and applied only when the application is running/open
 
 Supported Image Formats
-.jpg, .jpeg, .png, .gif, .bmp, .wbmp, .webp, .tif, .svg
+.jpg, .jpeg, .png, .gif, .bmp, .wbmp, .webp
+
+
+Thank you for reading the Manual, Please contact raashtra.kc.stu@kingsu.ca for reporting any bugs in the application. I will surely work on it and fix in future versions.

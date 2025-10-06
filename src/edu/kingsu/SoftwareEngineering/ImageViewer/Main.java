@@ -176,7 +176,7 @@ public class Main implements ActionListener{
   /**
    * Setting the supported image file extensions
    */
-  String[] accepted = {".jpg", ".jpeg", ".png", ".gif", ".bmp", ".wbmp", ".webp", ".tif", ".svg"};
+  String[] accepted = {".jpg", ".jpeg", ".png", ".gif", ".bmp", ".wbmp", ".webp"};
   /**
    * DropDown menu for selecting zoom levels.
    */
@@ -338,7 +338,7 @@ public class Main implements ActionListener{
         String infoMessage = "How to use the Image Viewer: \n\n"
                             + "1. Select a Folder:\n"
                             + "   - Choose a folder from your computer and wait for a new window to appear.\n"
-                            + "   - All supported images in that folder (.jpg, .jpeg, .png, .gif, .bmp, .wbmp, .webp, .tif, .svg) will appear as thumbnails in the new window.\n"
+                            + "   - All supported images in that folder (.jpg, .jpeg, .png, .gif, .bmp, .wbmp, .webp) will appear as thumbnails in the new window.\n"
                             + "   - Click on any image thumbnail to open it in the image viewer with controls in it.\n\n"
 
                             + "2. Select an Image:\n"   //I have addeda extra feature to directly open the image of user's choice
