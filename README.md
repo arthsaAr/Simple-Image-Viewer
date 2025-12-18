@@ -1,58 +1,37 @@
-# ImageViewer
-The objective of this laboratory is to give you experience developing a GUI using Java and the Swing widget toolkit.  You will become familiar with software repositories (git), ANT, and JavaDoc to provide revision control, build management, and code documentation respectively.  Your task will be open-ended, and you will be required to think creatively about how you will develop a user-friendly GUI.
+About the Application:
+This GUI Image Viewer allows users to browse, view, and manipulate images. It supports proper navigation, brightness controls, resizing, and zooming the image with the use of different graphical interfaces built with Swing and AWT in JAVA.
 
-## Compile
-To compile the project run:
+How to Use the Image Viewer:
+1. Select a Folder containing multiple images OR Select a image directly using the navigator
+2. When user selects a folder containing image files then A new window will display all images in that folder as thumbnails/small icons.
+3. Click on any thumbnail to open the image in the control panel window where different settings can be applied to the image.
 
-```
-ant compile
-```
+Help Option:
+4. Use the "Help" menu to display instructions on how to use the application.
 
-## Build a Distributable (JAR file)
-To build an executable jar file, run:
+Quit
+5. Use the "Quit" button or click the window's close button to exit the application.
 
-```
-ant jar
-```
+Image Viewer Features:
+1. View the selected image with real-time updates(specifically the size is updated on real-time).
+2. Zoom in and out using the zoom drop-down option where zoom percentages are preset.
+3. Resize the image by entering custom width and height, then clicking "Apply to see the changes.
+4. Adjust image brightness using the brightness slider: drag left to darken and right to brighten the image.
 
-## Running
+Image details such as width and height are displayed below the image.
 
-### Without Ant, Command line
-To run the application via the portable jar file (this is by default created at `dist/ImageViewer.jar` after building) run:
+Navigation Inside the Viewer
+1. Home: Returns to the main welcome screen.
+2. Images Directory: Returns to the thumbnails view of the last opened folder.
 
-```
-java -jar <jar file>
-```
+Application Information
+* Click the "i" button in the toolbar to view the application version and author details.
 
-Example:
+Notes:
+All image modifications are temporary and applied only when the application is running/open
 
-```
-java -jar dist/ImageViewer.jar # This is the default jar location after build
-```
-### With Ant
-To run the application through `ant` (also performs application build if necessary), navigate
-to the root of this repository and run:
+Supported Image Formats
+.jpg, .jpeg, .png, .gif, .bmp, .wbmp, .webp
 
-```
-ant
-```
 
-## JavaDoc
-To create the backend (API-level) documentation run:
-
-```
-ant javadoc
-```
-
-Then navigate to `doc/index.html` with a web browser. 
-
-```
-open doc/index.html
-```
-
-## Cleaning
-To clean created files from building, navigate to the root of this repository and run:
-
-```
-ant clean
-```
+Thank you for reading the Manual, Please contact raashtra.kc.stu@kingsu.ca for reporting any bugs in the application. I will surely work on it and fix in future versions.

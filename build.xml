@@ -12,7 +12,7 @@
   <property name="assets.dir" location="${src.dir}/assets"/>
   <property name="doc.dir" location="doc" />
 
-  <property name="Main-Class" value="edu.kingsu.SoftwareEngineering.ImageViewer.Main"/>
+  <property name="Main-Class" value="ImageViewer.ImageViewer"/>
   <property name="jar.name" value="${ant.project.name}"/>
   <property name="jar.file" value="${jar.dir}/${jar.name}.jar"/>
 
@@ -43,12 +43,15 @@
             includeantruntime="false"
     >
     </javac>
+    <copy todir="${classes.dir}">
+      <fileset dir="${src.dir}" includes="assets/**/*"/>
+    </copy>
   </target>
 
   <target name="jar" depends="compile" description="Bundle classes into a single JAR file (build/jar/)">
     <mkdir dir="${jar.dir}"/>
     <jar destfile="${jar.file}" basedir="${classes.dir}">
-      <fileset dir="${assets.dir}"/>
+      <!--<fileset dir="${assets.dir}"/>-->
       <manifest>
         <attribute name="Main-Class" value="${Main-Class}"/>
       </manifest>
@@ -62,7 +65,7 @@
 
   <target name="javadoc" description="Create the JavaDoc API">
     <javadoc
-      packagenames="edu.kingsu.SoftwareEngineering.*"
+      packagenames=".*"
       sourcepath="${src.dir}"
       destdir="${doc.dir}"
       author="true"

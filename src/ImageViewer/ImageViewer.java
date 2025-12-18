@@ -1,5 +1,4 @@
-package edu.kingsu.SoftwareEngineering.ImageViewer;
-
+package ImageViewer;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -29,7 +28,7 @@ import javax.swing.*;
  * @version 1.0
  */
 
-public class Main implements ActionListener{
+public class ImageViewer implements ActionListener{
 
   // Declaring some private and public variables for our GUI objects(like frame, labels, textfields, menubars, menuItems) etc.
   /**
@@ -195,7 +194,7 @@ public class Main implements ActionListener{
    * Constructs the initial frame/window of the Image Viewer application
    * Displays the welcome screen with "Select a Folder", "Select a Image", "Help" and "Quit" options.
    */
-  public Main(){
+  public ImageViewer(){
     frame = new JFrame(defaultTitle);
 
     JLabel welcomeLabel = new JLabel("Welcome to Image Viewer");
@@ -270,7 +269,7 @@ public class Main implements ActionListener{
   * @param args Is not used in this specific application
   */
   public static void main(String[] args) {
-    new Main();       //calling our default constructor when we want to start the application in fresh
+    new ImageViewer();       //calling our default constructor when we want to start the application in fresh
   }
 
   /**
@@ -302,7 +301,7 @@ public class Main implements ActionListener{
             if(choosenFile == JFileChooser.APPROVE_OPTION){
               secondFrame();      //calling our secondFrame which initializes and creates a new window for showing/and controlling/modifying the image that was selected
             } else if(choosenFile == JFileChooser.CANCEL_OPTION){
-              new Main();       //handling if the user denies to select a file than re-opening the home screen before quiting
+              new ImageViewer();       //handling if the user denies to select a file than re-opening the home screen before quiting
             }
         } catch (InvalidPathException ev) {
           System.out.println("File selection failed");      //if none of the options were clicked, or file failed to open throwing a error and closing the application
@@ -376,7 +375,7 @@ public class Main implements ActionListener{
           File selectedDir = folderSelect.getSelectedFile();
           displayFolderSelected(selectedDir);
         } else if(re == JFileChooser.CANCEL_OPTION){
-            new Main();       //handling if the user denies to select a file than re-opening the home screen before quiting
+            new ImageViewer();       //handling if the user denies to select a file than re-opening the home screen before quiting
         }
     } else if(e.getSource() == featuresDisplay){          //handling event when Features option is clicked
       String infoMessage = "Image Viewer Features:\n"
@@ -441,7 +440,7 @@ public void displayFolderSelected(File folderS){
     //if there were no images in the current directory than handling the error and returning back to home screen
     if(imageFiles == null || imageFiles.length == 0){
       JOptionPane.showMessageDialog(frame, "No Images found in current directory");
-      new Main();
+      new ImageViewer();
       return;
     }
 
@@ -468,12 +467,12 @@ public void displayFolderSelected(File folderS){
     }
 
     //creating a button with home icon to get back to home screen
-    JButton getBack = new JButton(new ImageIcon("home.png"));
+    JButton getBack = new JButton(new ImageIcon(getClass().getResource("/assets/icons/home.png")));
     getBack.addActionListener(e -> {
       thumbnailsIcon.remove(button1);
       frame.setVisible(false);
       frame.getContentPane().removeAll();
-      new Main();
+      new ImageViewer();
     });
 
     //adding our button at the bottom of the frame/panel
@@ -521,13 +520,13 @@ public void displayFolderSelected(File folderS){
               featuresDisplay.addActionListener(this);
 
               Home = new JMenu();                   //creating another menuitem where a home icon appears allowing user to easily get back to home screen
-              Home.setIcon(new ImageIcon("home.png"));
+              Home.setIcon(new ImageIcon(getClass().getResource("/assets/icons/home.png")));
               HomeIcon = new JMenuItem("Home Screen");
               HomeIcon.addActionListener(evv -> {     //handling event by removing everything in current frame and recalling our COnstructor
                 panel.remove(button1);
                 frame.setVisible(false);
                 frame.getContentPane().removeAll();
-                new Main();
+                new ImageViewer();
               });
 
               getBacktoDir = new JMenuItem("Images Directory");
@@ -585,7 +584,7 @@ public void displayFolderSelected(File folderS){
                       + "This application allows users to view and change image appearances with features like zooming, resizing, and brightness adjustment.";
                 JOptionPane.showMessageDialog(frame, aboutMessage, "About Image Viewer", JOptionPane.INFORMATION_MESSAGE);
               });
-              openBtn.setIcon(new ImageIcon("info.png"));     //making a info button with i logo which is clickable
+              openBtn.setIcon(new ImageIcon(getClass().getResource("/assets/icons/info.png")));     //making a info button with i logo which is clickable
               toolBar.add(openBtn);
 
               width = imageIcon.getIconWidth();     //storing the main image width and height for later modifications
