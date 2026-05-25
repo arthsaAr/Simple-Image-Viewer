@@ -6,6 +6,19 @@ The application is built using Java Swing and AWT and supports smooth navigation
 
 ---
 
+## Image Viewer Screens
+<p align="center">
+  <img src="assets/screenshots/Dashboard.png" width="250" />
+  <img src="assets/screenshots/ImageSelector.png" width="350" />
+</p>
+
+<p align="center">
+  <img src="assets/screenshots/Viewer.png" width="300" />
+  <img src="assets/screenshots/HelpScreen.png" width="450" />
+</p>
+
+---
+
 ## How to Use the Image Viewer
 
 ### Opening Images
